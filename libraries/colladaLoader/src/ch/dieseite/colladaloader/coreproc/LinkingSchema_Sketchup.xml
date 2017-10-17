@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<root xmlns="http://www.die-seite.ch" >
+<!-- this section defines required collada tags to be found and linked into internal database -->
+<!-- The ObjectLinker makes a scan through the whole collada doc for each entities sections-->
+	<loading>
+		<!-- begin textures and colors -->
+
+      	<entities poolname="imageNames"> 
+			<target idValueIn="#id" pattern="COLLADA/library_images/image">
+				<target pattern="COLLADA/library_images/image/init_from">
+				</target>
+			</target>
+		</entities>
+		
+		<!-- packed two entities in one because sid's are unique.. -->
+		<entities poolname="refImageNames"> 
+			<target idValueIn="#sid" pattern="COLLADA/library_effects/effect/profile_COMMON/newparam"> 
+				<target nextIdValueIn="$TEXTCONTENT" nextEntity="imageNames" pattern="COLLADA/library_effects/effect/profile_COMMON/newparam/surface/init_from">
+				</target>                             		
+				<target nextIdValueIn="$TEXTCONTENT" nextEntity="refImageNames" pattern="COLLADA/library_effects/effect/profile_COMMON/newparam/sampler2D/source">
+				</target>                             		
+			</target>
+		</entities>
+		
+		
+		<entities poolname="effects"> 
+			<target idValueIn="#id" pattern="COLLADA/library_effects/effect"> 
+				<!-- colors -->
+				<target pattern="COLLADA/library_effects/effect/profile_COMMON/technique/lambert/diffuse/color">
+				</target>
+				<!-- another possible color source (old sketchup) -->
+				<target pattern="COLLADA/library_effects/effect/profile_COMMON/technique/constant/transparent/color">
+				</target>
+				<!-- textures -->
+				<target nextIdValueIn="#texture" nextEntity="refImageNames" pattern="COLLADA/library_effects/effect/profile_COMMON/technique/lambert/diffuse/texture">
+				</target>
+				<!-- another way to find textures (Maya) -->
+				<target nextIdValueIn="#texture" nextEntity="refImageNames" pattern="COLLADA/library_effects/effect/profile_COMMON/technique/blinn/diffuse/texture">
+				</target>                                		
+			</target>
+		</entities>
+		
+		<entities poolname="library_materials"> 
+			<target idValueIn="#id" pattern="COLLADA/library_materials/material"> 
+				<target nextIdValueIn="#url" nextEntity="effects" pattern="COLLADA/library_materials/material/instance_effect">
+				</target> 				
+			</target>
+		</entities>	
+		<!-- Texture image names and colors dumped.. -->
+	
+		<!-- a stupid part: collada gives no unique symbol id's so I can't link foreign keys-->	
+		<entities poolname="geometry_symbol_Binds"> 
+			<!-- id value is same as id value in pool geomTriBinds -->
+			<target idValueIn="#url" pattern="COLLADA/library_visual_scenes/visual_scene/node/instance_geometry"> 
+				<target nextIdValueIn="#target" nextEntity="library_materials" pattern="COLLADA/library_visual_scenes/visual_scene/node/instance_geometry/bind_material/technique_common/instance_material">
+				</target> 
+			</target>
+			<!-- try another pattern of other sketchup version -->
+			<target idValueIn="#url" pattern="COLLADA/library_visual_scenes/visual_scene/node/node/instance_geometry"> 
+				<target nextIdValueIn="#target" nextEntity="library_materials" pattern="COLLADA/library_visual_scenes/visual_scene/node/node/instance_geometry/bind_material/technique_common/instance_material">
+				</target> 							
+			</target>
+		</entities>
+		
+		<!--  collect geometry datas -->
+		
+		<entities poolname="floatArrays"> 
+			<target idValueIn="#id" pattern="COLLADA/library_geometries/geometry/mesh/source"> 
+				<target pattern="COLLADA/library_geometries/geometry/mesh/source/float_array">
+				</target>                             		
+			</target>
+		</entities>
+		
+		<entities poolname="refFloatArraysVertice"> 
+			<target idValueIn="#id" pattern="COLLADA/library_geometries/geometry/mesh/vertices"> 
+				<target nextIdValueIn="#source" nextEntity="floatArrays" pattern="COLLADA/library_geometries/geometry/mesh/vertices/input#semantic=POSITION">
+				</target>                             		
+			</target>
+		</entities>
+
+		<entities poolname="geometries"> 
+			<target idValueIn="#id" pattern="COLLADA/library_geometries/geometry">
+				<target pattern="COLLADA/library_geometries/geometry/mesh/triangles">
+					<target nextIdValueIn="#source" nextEntity="refFloatArraysVertice" pattern="COLLADA/library_geometries/geometry/mesh/triangles/input#semantic=VERTEX">
+					</target>
+					<target nextIdValueIn="#source" nextEntity="floatArrays" pattern="COLLADA/library_geometries/geometry/mesh/triangles/input#semantic=TEXCOORD">
+					</target>
+					<target pattern="COLLADA/library_geometries/geometry/mesh/triangles/p">
+					</target>		
+				</target>
+				<target pattern="COLLADA/library_geometries/geometry/mesh/lines">
+					<target nextIdValueIn="#source" nextEntity="refFloatArraysVertice" pattern="COLLADA/library_geometries/geometry/mesh/lines/input#semantic=VERTEX">
+					</target>
+					<target nextIdValueIn="#source" nextEntity="floatArrays" pattern="COLLADA/library_geometries/geometry/mesh/lines/input#semantic=TEXCOORD">
+					</target>
+					<target pattern="COLLADA/library_geometries/geometry/mesh/lines/p">
+					</target>		
+				</target>
+			</target>
+		</entities>		
+				
+	</loading>
+	
+<!-- now records are completely linked. Next section defines how to deal fetched data above to Triangles/Lines  -->
+<!-- The Data Assembler reads this section and runs iterations and functions -->
+
+	<assembling>
+	
+		<!-- stupid part: why can't collada put a global unique material link into triangles / lines tag? or in other words: why doing it simply when it might as well can be done complicated..-->			
+		<iteration source="geometries" tuple="aGeometry">
+			<iteration source="aGeometry" tuple="aShape">
+				<function name = "iterate_geometry_symbol_Binds_and_Link" class="ch.dieseite.colladaloader.asmbeans.Sketchup" >
+				   	<paramlist source="aShape" />
+				   	<paramlist source="geometry_symbol_Binds" />
+				   	<paramlist source="aGeometry" />
+				</function>
+			</iteration>
+		</iteration>
+		<!-- end of stupid part... -->
+		
+		<!-- from now all objects is linked -->
+		
+		<!-- load Textures -->
+		<iteration source="refImageNames" tuple="aRefImageName">
+			<function name = "importTextures" class="ch.dieseite.colladaloader.asmbeans.Common" result="texPool">
+				<paramlist source="aRefImageName" args="c source j 1 c init_from j 1 c init_from"/>
+				<paramlist source="texPool"/>
+				<paramlist source="colladaInterface"/>
+			</function>
+		</iteration>
+		
+		<!-- create processing Triangles using Geometry bundles -->
+		
+		<iteration source="geometries" tuple="shapes">
+			<iteration source="shapes" tuple="aShape">
+				<function name = "createColor" class="ch.dieseite.colladaloader.asmbeans.Sketchup" result="aColor">
+					<paramlist source="aShape" args="j 2 c instance_effect j 1 c color"/>
+				</function>                              
+				<function name = "getTexImage" class="ch.dieseite.colladaloader.asmbeans.Common" result="aTexImage">
+					<paramlist source="aShape" args="j 2 c instance_effect j 1 c texture j 1 c source j 1 c init_from j 1 c init_from"/>
+					<paramlist source="texPool" />
+					<paramlist source="colladaInterface" />
+				</function>
+				<function name = "parseCoordData" class="ch.dieseite.colladaloader.asmbeans.Sketchup" result="coordData">
+					<paramlist source="aShape" args="c input#semantic=VERTEX;
+														c input#semantic=TEXCOORD;
+														c input#semantic=VERTEX j 1 c input#semantic=POSITION j 1 c float_array;
+														c input#semantic=TEXCOORD j 1 c float_array;
+														c p"/>
+				</function>
+				<function name = "createTriangles" class="ch.dieseite.colladaloader.asmbeans.Sketchup" result="triangles">
+					<paramlist source="coordData" />
+					<paramlist source="aTexImage" />
+					<paramlist source="aColor" />
+					<paramlist source="colladaInterface" />
+				</function>	
+				<function name = "createLines" class="ch.dieseite.colladaloader.asmbeans.Common" result="lines">
+					<paramlist source="coordData" />
+					<paramlist source="aColor" />
+				</function>
+				<function name = "addShapes" class="ch.dieseite.colladaloader.asmbeans.Common">
+					<paramlist source="colladaInterface" />
+					<paramlist source="triangles" />
+					<paramlist source="lines" />
+				</function>		
+			</iteration>
+		</iteration>
+		<function name = "submitShapes" class="ch.dieseite.colladaloader.asmbeans.Common">
+			<paramlist source="colladaInterface" />
+		</function>	
+		
+
+	
+	</assembling>
+	
+	<!-- where start params come from or the LoadingListener is fired.. -->
+	<interface name="colladaInterface" class="ch.dieseite.colladaloader.asmbeans.DescriptorCommon" />
+	
+</root>
+
+

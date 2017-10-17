@@ -1,0 +1,62 @@
+package game2dai.steering;
+
+public interface SBF {
+
+	// Bit positions for flags for internal library use.
+    int BIT_WALL_AVOID			= 0;
+    int BIT_OBSTACLE_AVOID		= 1;
+    int BIT_EVADE				= 2;
+    int BIT_FLEE				= 3;
+    int BIT_SEPARATION			= 4; // These three
+    int BIT_ALIGNMENT			= 5; // together for
+    int BIT_COHESION			= 6; // flocking
+    int BIT_SEEK				= 7;
+    int BIT_ARRIVE				= 8;
+    int BIT_WANDER				= 9;
+    int BIT_PURSUIT				= 10;
+    int BIT_OFFSET_PURSUIT		= 11;
+    int BIT_INTERPOSE			= 12;
+    int BIT_HIDE				= 13;
+    int BIT_PATH				= 14;
+    int BIT_FLOCK				= 15;
+
+    // Behaviour identifier constants (flag values)
+    int WALL_AVOID			= 1 << BIT_WALL_AVOID;
+    int OBSTACLE_AVOID		= 1 << BIT_OBSTACLE_AVOID;
+    int EVADE				= 1 << BIT_EVADE;
+    int FLEE				= 1 << BIT_FLEE;
+    int SEPARATION			= 1 << BIT_SEPARATION;	// These three
+    int ALIGNMENT			= 1 << BIT_ALIGNMENT;	// together for
+    int COHESION			= 1 << BIT_COHESION;	// flocking
+    int SEEK				= 1 << BIT_SEEK;
+    int ARRIVE				= 1 << BIT_ARRIVE;
+    int WANDER				= 1 << BIT_WANDER;
+    int PURSUIT				= 1 << BIT_PURSUIT;
+    int OFFSET_PURSUIT		= 1 << BIT_OFFSET_PURSUIT;
+    int INTERPOSE			= 1 << BIT_INTERPOSE;
+    int HIDE				= 1 << BIT_HIDE;
+    int PATH				= 1 << BIT_PATH;
+    int FLOCK 				= 1 << BIT_FLOCK;
+
+    // All behaviours mask used when switching off a behaviour
+     int ALL_SB_MASK			= 0x0ffffff;
+    
+    int WEIGHTED					= 1;
+    int WEIGHTED_PRIORITIZED		= 2;
+ 
+    double[] DECEL_TWEEK	= new double[] {0.0, 0.3, 0.6, 0.9}; 
+    int FAST        		= 1;
+    int NORMAL           	= 2;
+    int SLOW   				= 3;
+    
+    // These refer to array index values so don't change them.
+    int AGENT0				= 0;
+    int AGENT1				= 1;
+    int AGENT_TO_PURSUE		= 2;
+    int AGENT_TO_EVADE		= 3;
+    int NBR_AGENT_ARRAY		= 4;
+       
+	int PASS_THROUGH		= 10000;
+	int WRAP 				= 10001;
+	int REBOUND 			= 10002;
+}

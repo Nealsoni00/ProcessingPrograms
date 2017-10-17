@@ -1,0 +1,462 @@
+Lana Chen, Vestavia Hills High School, Vestavia Hills
+Arjun Guru, The Altamont School, Birmingham 
+Maya Guru, The Altamont School, Birmingham 
+Megan Lange, Auburn High School, Auburn
+Mihir Limdi, The Altamont School, Birmingham
+Sarah Zhao, Vestavia Hills High School, Vestavia Hills
+Ritika Bharati, Hamilton High School, Chandler
+Priyanka Konan, Hamilton High School, Chandler
+Abijith Krishnan, BASIS Scottsdale, Scottsdale
+Divya Vatsa, BASIS Scottsdale, Scottsdale
+Emily Wood, Xavier College Preparatory School, Phoenix
+Taryn Imamura, Arkansas School for Mathematics, Sciences, and the Arts, Hot Springs
+David Xiang, Central High School, Little Rock
+Muskaan Aggarwal, Mira Loma High School, Sacramento
+Michael Ai, Canyon Crest Academy, San Diego
+Vivek Bharadwaj, The Harker School, San Jose
+Mythili Bhethanabotla, Lynbrook High School, San Jose
+Sidharth Bommakanti, Amador Valley High School, Pleasanton
+Lillian Bu, Del Norte High School, San Diego
+Jessica Cao, Valley Christian High School, San Jose
+Kevin Carlson, Roseville High School, Roseville
+Rishabh Chandra, The Harker School, San Jose
+Caroline Chang, Ardenwood School, Newark
+Nikhil Cheerla, Monta Vista High School, Cupertino
+Anika Cheerla, Monta Vista High School, Cupertino
+Allen Chen, Lynbrook High School, San Jose
+Andrew Chen, Mission San Jose High School, Fremont
+Daniel Chen, Dougherty Valley High School, San Ramon
+Matthew Cheng, BASIS Independent Silicon Valley, San Jose
+Christine Cho, Castilleja School, Palo Alto
+Gina Choi, Harvard-Westlake School, Studio City
+Shashank Dholakia, Wilcox High School, Santa Clara
+Shishir Dholakia, Wilcox High School, Santa Clara
+Niraj Ganesh, Diamond Bar High School, Diamond Bar
+Anjali Ganguly, Evergreen Valley High School, San Jose
+Karen Gao, Carlmont High School, Belmont
+Rishab Gargeya, The Harker School, San Jose
+Aidan Gilkes, Dos Pueblos High School, Goleta
+Raymond Gilmartin, South Pasadena High School, South Pasadena
+Meghal Gupta, Monta Vista High School, Cupertino
+John Heath, South Pasadena High School, South Pasadena
+Jerry Hong, Palo Alto High School, Palo Alto
+Joseph Hsiung, Monta Vista High School, Cupertino
+Nandini Iyer, Homestead High School, Cupertino
+Vanshika Jain, St. Francis High School, Mountain View
+Shreyan Jain, Bellarmine College Preparatory School, San Jose
+Shasvat Jawahar, The Harker School, San Jose
+Anjini Karthik, St. Francis High School, Mountain View
+Emory Kim, Harvard-Westlake School, Studio City
+Andrew Lee, Palo Alto High School, Palo Alto
+Alexander Li, Saratoga High School, Saratoga
+Kathryn Li, Palo Alto High School, Palo Alto
+Vick Liu, Flintridge Preparatory School, La Canada
+David Lu, Mills High School, Millbrae
+Anthony Luo, The Harker School, San Jose
+Jonathan Ma, The Harker School, San Jose
+Brandon Mo, The Harker School, San Jose
+Alex Mo, The Harker School, San Jose
+Rahul Mohan, Fremont High School, Sunnyvale
+Arion Morshedian, Monte Vista High School, Danville
+Sathvik Nair, Leland High School, San Jose
+Clarence Nakano, Flintridge Preparatory School, La Canada
+JunHyuk Oh, South Pasadena High School, South Pasadena
+Greg Pailet, Palos Verdes High School, Palos Verdes Estates
+Edward Park, Larchmont Charter School, Los Angeles
+Bibhav Poudel, Dougherty Valley High School, San Ramon
+Evani Radiya-Dixit, The Harker School, San Jose
+Amy Ren, Mills High School, Millbrae
+Venkat Sankar, The Harker School, San Jose
+Manan Shah, The Harker School, San Jose
+Ethan Shen, Cupertino High School, Cupertino
+Shailja Somani, Lynbrook High School, San Jose
+Arvind Sridhar, Bellarmine College Preparatory School, San Jose
+Irene Su, Amador Valley High School, Pleasanton
+Arjun Subramaniam, The Harker School, San Jose
+Alan Tan, Irvington High School, Fremont
+Tara Thakurta, Castilleja School, Palo Alto
+Timothy Varghese, King's Academy, Sunnyvale
+Teja Veeramacheneni, Archbishop Mitty High School, San Jose
+Rishi Veerapaneni, Saratoga High School, Saratoga
+Ben Wolman, Palisades Charter High School, Pacific Palisades
+Sophia Wu, Lowell High School, San Francisco
+Evan Yu, University High School, Irvine
+Kristine Zhang, Saratoga High School, Saratoga
+Alec Zhang, Monte Vista High School, Danville
+David Zhu, The Harker School, San Jose
+Kathryn Lawrence, Fairview High School, Boulder
+Eric Sun, Pueblo West High School, Pueblo West
+Katie Younglove, Fairview High School, Boulder
+Seung Hwan An, Taft School, Watertown
+Cristian Gutu, Joel Barlow High School, Redding
+Chiho Im, Choate Rosemary Hall, Wallingford
+Joseph Lee, Loomis Chaffee School, Windsor
+George Ridgway, Greenwich High School, Greenwich
+Arun Soni, Staples High School, Westport
+William Wang, Amity Region High School, Woodbridge
+Xiaotian Zhang, Staples High School, Westport
+Vignesh Bhethanabotla, King Senior High School, Tampa
+Beverly Ge, F. W. Buchholz High School, Gainesville
+Maria Grimmett, Oxbridge Academy of the Palm Beaches, West Palm Beach
+Khaya Klanot, Riverview High School, Sarasota
+Shixuan Li, Rutherford High School, Panama City
+Anu Sharma, Oak Hall, Gainesville
+Harish Kamath, South Forsyth High School, Cumming
+Matthew Kim, Mountain View High School, Lawrenceville
+Ju Kim, Gwinnett School of Mathematics, Science, and Technology, Lawrenceville
+Keshav Shenoy, Wheeler High School, Marietta
+Fang Shi, Lakeside High School, Evans
+Kyra Solomon, Gwinnett School of Mathematics, Science, and Technology, Lawrenceville
+Kristen Surrao, Lakeside High School, Evans
+Tina Tran, Norcross High School, Norcross
+Jennifer Wang, Norcross High School, Norcross
+William Wu, Lakeside High School, Evans
+Srisurya Yadavalli, Gwinnett School of Mathematics, Science, and Technology, Lawrenceville
+Kavya Anjur, Metea Valley High School, Aurora
+Kalpa Anjur, Metea Valley High School, Aurora
+Tushar Dwivedi, Neuqua Valley High School, Naperville
+Deepankar Gupta, Neuqua Valley High School, Naperville
+Paul Nebres, Illinois Mathematics and Science Academy, Aurora
+Sarvasva Raghuvanshi, Neuqua Valley High School, Naperville
+Benjamin Schiffer, University of Illinois Laboratory High School, Urbana
+Aadit Shah, Illinois Mathematics and Science Academy, Aurora
+Pranav Sivakumar, Illinois Mathematics and Science Academy, Aurora
+Leah Umanskiy, University of Chicago Laboratory High School, Chicago 
+Quoc Trung N Van Ha, University of Chicago Laboratory High School, Chicago
+Brice Wang, Illinois Mathematics and Science Academy, Aurora
+Matthew Yeh, Hinsdale Central High School, Hinsdale
+Julia Chael, Munster High School, Munster
+Caleb He, Carmel Senior High School, Carmel
+Anthony L Ji, Carmel Senior High School, Carmel
+Ryan Jou, Carmel Senior High School, Carmel
+Aditya Mantri, Columbus North High School, Columbus
+Katherine Mao, West Lafayette Junior-Senior High School, West Lafayette
+Vikas Maturi, Carmel Senior High School, Carmel
+Jessica Mo, Carmel Senior High School, Carmel
+Emily Sun, Park Tudor, Indianapolis
+Sreya Vemuri, Carmel Senior High School, Carmel
+Yifeng Ding, Blue Valley North High School, Overland Park
+Richard  Gunasena, DuPont Manual High School, Louisville
+Harsh Moolani, Gatton Academy of Mathematics and Science, Bowling Green
+Matthew  Raj, DuPont Manual High School, Louisville
+Sanjana Rane, DuPont Manual High School, Louisville
+Madan Subheeswar, DuPont Manual High School, Louisville
+Alexandra Wright, Gatton Academy of Mathematics and Science, Bowling Green
+Karina Chang, Montgomery Blair High School, Silver Spring
+Eric Chen, Montgomery Blair High School, Silver Spring
+William Chen, Winston Churchill High School, Potomac
+Kang Wook Chung, Gilman School, Baltimore
+Robert Fleischman, Montgomery Blair High School, Silver Spring
+Ariel Goldbloom-Helzner, Montgomery Blair High School, Silver Spring
+Yidong Hu, Winston Churchill High School, Potomac
+Jihoon Jang, Poolesville High School, Poolesville
+Caroline Leng, Poolesville High School, Poolesville
+Noah Del Rio Levine, Montgomery Blair High School, Silver Spring
+Raymond Lin, Montgomery Blair High School, Silver Spring
+Gayane Matevosyan, Poolesville High School, Poolesville
+Natalie Shafer, Shafer Academy, Keedysville
+Rachel Shafer, Shafer Academy, Keedysville
+Daniel Smolyak, Atholton High School, Columbia
+Josephine Yu, Montgomery Blair High School, Silver Spring
+Matthew Yu, Montgomery Blair High School, Silver Spring
+Ariel Zhang, Montgomery Blair High School, Silver Spring
+Minie Zhang, Montgomery Blair High School, Silver Spring
+Jennings Zhang, Thomas S. Wootton High School, Rockville
+Rittika Adhikari, Westford Academy, Westford
+Zahin Ahmed, Lexington High School, Lexington
+Thomas Choi, Phillips Academy, Andover
+Amy Chou, Phillips Academy, Andover
+Fengyao Ding, Phillips Academy, Andover
+Pranav Gandham, Lexington High School, Lexington
+Kenz Kallal, Weston High School, Weston
+Sailesh Kaveti, Sharon High School, Sharon
+Kwonil Ko, Cushing Academy, Ashburnham
+Matthew Lipman, Boston University Academy, Boston
+Indumathi Prakash, Sharon High School, Sharon
+Roshni Sahoo, Acton Boxborough Regional High School, Acton
+Harshal Sheth, Westford Academy, Westford
+Michael Silver, Boston University Academy, Boston
+Bharat V Srirangam, Lexington High School, Lexington
+Kavya Tumkur, Westford Academy, Westford
+Michelle Walsh, The Winsor School, Boston
+Felix Wang, Roxbury Latin School, West Roxbury
+Victor Zhang, Andover Senior High School, Andover
+Sujai Arakali, Troy High School, Troy
+Allen Diao, Troy High School, Troy
+James Ge, Troy High School, Troy
+Jordan D Gregory, Cass Technical High School, Detroit
+Lyndsey Gu, Troy High School, Troy
+Halima Haque, Cass Technical High School, Detroit
+Yusang Huang, Detroit Country Day High School, Beverly Hills
+Amy Li, Troy High School, Troy
+Alexander Liu, Troy High School, Troy
+Bogdan Manga, International Academy Central, Bloomfield Hills
+David Wu, Troy High School, Troy
+Helen Xu, Detroit Country Day High School, Beverly Hills
+Jennie Yang, Troy High School, Troy
+Richard Yang, Troy High School, Troy
+Elena Berman, Breck School, Golden Valley
+Sarah Carlson, Breck School, Golden Valley
+Siddarth Eswarachari, Breck School, Golden Valley
+Alexander Guzman, Breck School, Golden Valley
+Isabella Jennings, Breck School, Golden Valley
+Michelle Mao, Woodbury High School, Woodbury
+Cole Maxwell, Breck School, Golden Valley
+Evelyn Mcchesney, Breck School, Golden Valley
+Madeline Mccue, Breck School, Golden Valley
+Archana Murali, Breck School, Golden Valley
+Kevin Qian, Wayzata High School, Plymouth
+Samuel Rex, Breck School, Golden Valley
+Genevieve Weiler, Breck School, Golden Valley
+Yutong Xu, Edina Senior High School, Minneapolis
+Cassidy N Yueh, Breck School, Golden Valley
+Hannah Chen, Rock Bridge Senior High School, Columbia
+Amy Gu, Rock Bridge Senior High School, Columbia
+Michael Pennella, Rock Bridge Senior High School, Columbia
+Derek  Wang, Rock Bridge Senior High School, Columbia
+Rachel Zhang, Parkway South High School, Manchester
+Wendy Zhang, Rock Bridge Senior High School, Columbia
+Christian Lopez, Northwest Career & Technical Academy, Las Vegas
+Jhiseung Hahn, Phillips Exeter Academy, Exeter
+Meena Jagadeesan, Phillips Exeter Academy, Exeter
+David Larar, Phillips Exeter Academy, Exeter
+Ziheng Wang, St. Paul's School, Concord
+Aashish Welling, Nashua High School South, Nashua
+Ryan Catalano, North Brunswick Township High School, North Brunswick
+Min Sung Cho, Bergen County Academies, Hackensack
+Arthur Dennis, Bergen County Academies, Hackensack
+Kaitlyn Espiritu, Tenafly High School, Tenafly
+Bryant Lee, Tenafly High School, Tenafly
+Thomas Li, High Technology High School, Lincroft
+William Lin, High Technology High School, Lincroft
+Andrew Mu, Academy of Allied Health and Science, Scotch Plains
+Kunwoo Park, Watchung Hills Regional High School, Warren
+Kristen Park, North Brunswick Township High School, North Brunswick
+Kunal Singh, High Technology High School, Lincroft
+Prachi Sinha, John P. Stevens High School, Edison
+Crystal Wang, Princeton High School, Princeton
+Matthew Wang, Princeton High School, Princeton
+Rachel Wu, The Pingry School, Basking Ridge
+Andrew Zheng, Watchung Hills Regional High School, Warren
+Jonah Ng, Las Cruces High School, Las Cruces
+Edward Park, Las Cruces High School, Las Cruces
+Jovan Zhang, Los Alamos High School, Los Alamos
+Katrina Almodovar, Oceanside High School, Oceanside
+Andrew Amini, Yorktown High School, Yorktown Heights
+Gianna Chan, Herricks High School, New Hyde Park
+Rahul Chaudhry, Syosset High School, Syosset
+Sahil Chaudhry, Syosset High School, Syosset
+Jordan Chee, Herricks High School, New Hyde Park
+August Chen, John L. Miller Great Neck North High School, Great Neck
+Edric Chen, The Kew Forest School, Forest Hills
+Ayesha Chhugani, Herricks High School, New Hyde Park
+Tzippora Chwat, Yeshiva University High School for Girls, Hollis
+Abbigayle Cuomo, Commack High School, Commack
+Brandon Epstein, Half Hollow Hills High School West, Dix Hills
+Robert Evans, Division Avenue High School, Levittown
+Margaret Fang, Jericho Senior High School, Jericho
+Alec Fischthal, George W Hewlett High School, Hewlett
+Remi Golden, George W Hewlett High School, Hewlett
+Brandon Gong, Garden City Senior High School, Garden City
+Kalyani Gopalkrishna, Edgemont Junior Senior High School, Scarsdale
+Danah Han, Half Hollow Hills High School West, Dix Hills
+Connie He, Half Hollow Hills High School West, Dix Hills
+Jun Yan He, Manhasset Senior High School, Manhasset
+David Herman, Davis Renov Stahler Yeshiva High School for Boys, Woodmere
+Lisbette Hernandez, Brentwood High School, Brentwood
+Shade Hightower, Brentwood High School, Brentwood
+Jeahoung Hong, Hunter College High School, New York
+Emily Huang, Ward Melville Senior High School, East Setauket
+Raymond Huffman, Manhasset Senior High School, Manhasset
+Benjamin Hurd, Pelham Memorial High School, Pelham
+Jaison Jain, Hunter College High School, New York
+Tina Jiang, Stuyvesant High School, New York
+Gabrielle Jung, Half Hollow Hills High School West, Dix Hills
+Bongseok Jung, Herricks High School, New Hyde Park
+Chenab Khakh, George W Hewlett High School, Hewlett
+Mohammad Yasir Khan, Ossining High School, Ossining
+Eric Kilgore, Earl L. Vandermeulen High School, Port Jefferson
+Yujin Kim, Stony Brook School, Stony Brook
+Robert Kleyner, Syosset High School, Syosset
+Michael Lee, Manhasset Senior High School, Manhasset
+Sarah Lee, Syosset High School, Syosset
+Christopher Lee, Hunter College High School, New York
+John Lhota, Hunter College High School, New York
+Andrew Lu, Hunter College High School, New York City
+Graelin Mandel, John L. Miller Great Neck North High School, Great Neck
+Oindrila Naha, Brentwood High School, Brentwood
+Annabelle Ng, Great Neck South High School, Great Neck
+Vishal Nyayapathi, Half Hollow Hills High School East, Dix Hills
+Harriet O'Brien, Ward Melville Senior High School, East Setauket
+Roshan Patel, Ward Melville Senior High School, East Setauket
+Naeha Pathak, Herricks High School, New Hyde Park
+Wesley Pedone, Pelham Memorial High School, Pelham
+Laura Pellegrino, School of the Holy Child, Rye
+Nikhil Rajan, Horace Mann School, Bronx
+Brian Rhee, High School East, Dix Hills
+Alia Rizvon, Half Hollow Hills High School East, Dix Hills
+Dominick Rowan, Byram Hills High School, Armonk
+Kevin Sadhu, Manhasset Senior High School, Manhasset
+Neeraj Sakhrani, Bronx High School Of Science, Bronx
+Kameron Sedigh, Kings Park High School, Kings Park
+Nihar Shah, Herricks High School, New Hyde Park
+Kunal Shah, Syosset High School, Syosset
+Michael Shen, Great Neck South High School, Great Neck
+Sunny Shi, Great Neck South High School, Great Neck
+Robin Shum, Great Neck South High School, Great Neck
+Jeremy Silverman, South Side High School, Rockville Centre
+Impreet Singh, Francis Lewis High School, Fresh Meadows
+Yujia Su, Great Neck South High School, Great Neck
+Natalie Tan, Herricks High School, New Hyde Park
+Kimberly Te, Manhasset Senior High School, Manhasset
+George Theodosopoulos, Manhasset Senior High School, Manhasset
+Markella Tsalikis, Manhasset Senior High School, Manhasset
+Julian Ubriaco, Kings Park High School, Kings Park
+Ethan Udell, Half Hollow Hills High School East, Dix Hills
+Elizabeth Van Loon, Commack High School, Commack
+James Woma, Yorktown High School, Yorktown Heights
+Alice Wu, Half Hollow Hills High School West, Dix Hills
+Alice Xue, Pelham Memorial High School, Pelham
+Jennifer Yang, Ward Melville Senior High School, East Setauket
+Megan Yeung, Jericho Senior High School, Jericho
+Christine Yoo, Manhasset Senior High School, Manhasset
+Daeil Yoo, New Explorations Into Science, Technology, and Math, New York
+Jaysen Zhang, Great Neck South High School, Great Neck
+Kathryn Zhao, Ward Melville Senior High School, East Setauket
+Brian Zhao, Herricks High School, New Hyde Park
+Andrew Zuckerman, The Wheatley School, Old Westbury
+Margie Bruff, North Carolina School Of Science and Mathematics, Durham
+Sophia Hu, North Carolina School Of Science and Mathematics, Durham
+Ausvin Khanna, Green Hope High School, Cary
+Isabella Li, East Chapel Hill High School, Chapel Hill
+Carly Onnink, Brevard High School, Brevard
+Shreya Patel, North Carolina School of Science and Mathematics, Durham
+Vinit Ranjan, North Carolina School Of Science and Mathematics, Durham
+Mihir Shelke, Green Hope High School, Cary
+Jason Suh, Green Hope High School, Cary
+Michelle T Sun, North Carolina School of Science and Mathematics, Durham
+Rishi Sundaresan, North Carolina School of Science and Math, Durham
+Vamsi Varanasi, Enloe High School, Raleigh
+Emily Wang, Enloe High School, Raleigh
+Yifei Wang, East Chapel Hill High School, Chapel Hill
+Abigail Williams, Brevard High School, Brevard
+Megan Wu, Chapel Hill High School, Chapel Hill
+Sarah Wu, North Carolina School Of Science and Mathematics, Durham
+Katherine Yang, North Carolina School of Science and Mathematics, Durham
+Olivia Asmar, Hathaway Brown, Shaker Heights 
+Halle Leneghan, Hathaway Brown, Shaker Heights 
+Kavya Ravichandran, Hathaway Brown School, Shaker Heights
+Matthew Retchin, Columbus Academy, Gahanna
+Michael Retchin, Columbus Academy, Gahanna
+Simon Zhuang, Dublin Jerome High School, Dublin
+Philip Hwang, Oklahoma School of Science and Mathematics, Oklahoma City
+Mckalee S Steen, Grove High School, Grove
+Grant Kresge, Wilsonville High School, Wilsonville
+Evan Lavery, Oregon Episcopal School, Portland
+Emily Cheng, Methacton Senior High School, Eagleville
+Milind Jagota, Liberty High School, Bethlehem
+Kelly Jiang, Conestoga High School, Berwyn
+Richard Ling, Abington Heights High School, Clarks Summit
+Gerald Liu, Methacton High School, Eagleville
+Sagar Maheshwari, Unionville High School, Kennett Square
+Konrad Urban, Fox Chapel Area High School, Pittsburgh
+Yogeshwar Velingker, Parkland High School, Allentown
+Jack You, North Allegheny Senior High School, Wexford
+Michael Zhang, Conestoga High School, Berwyn
+Simon Mason, Oak Ridge High School, Oak Ridge
+William Roussell, Hillsboro High School, Nashville
+David Senter, Oak Ridge High School, Oak Ridge
+Xiuya Yao, School for Science and Math at Vanderbilt, Nashville
+Akshaya Annapragada, DeBakey High School for Health Professions, Houston
+Max Bu, Plano West Senior High School, Plano
+Kathleen Chen, Texas Academy of Math and Science, Denton
+Eric Clinch, Texas Academy of Mathematics and Science, Denton
+Alan Dai, Bellaire High School, Bellaire
+Colleen Dai, Texas Academy of Mathematics and Science, Denton
+Carolyn Guan, Texas Academy of Math and Science, Denton
+Michelle Hamilton, Westwood High School, Austin
+Floyd Horng, Texas Academy of Math and Science, Denton
+Lazar Ilic, Westlake High School, Austin
+Christine Jou, Klein High School, Klein
+Shinyoung Kang, Texas Academy Of Mathematics and Science, Denton
+Nathan Kong, Highland Park High School, Dallas
+Eric Shine Li, Saint Mark's School Of Texas, Dallas
+Eric Shuo Li, Clements High School, Sugar Land
+Wilbur Li, Clements High School, Sugar Land
+Alexander Li, Vandegrift High School, Austin
+Hans Li, Clements High School, Sugar Land
+Kevin Lin, Clements High School, Sugar Land
+William Liu, Texas Academy of Mathematics and Science, Denton
+Amber Lu, Texas Academy of Math and Science, Denton
+Robert Luo, Highland Park High School, Dallas
+Sachit Menon, Texas Academy of Mathematics and Science, Denton
+Tarun Muthuchamy, College Station High School, College Station
+Neha Narayan, Friendswood High School, Friendswood
+Sujana Nelakanti, Plano Senior High School, Plano
+Nina Osipova, Harmony School of Advancement, Houston
+Aman Patel, Dulles High School, Sugar Land
+Ethan Patel, North Hills Preparatory School, Irving
+Sakina Plumber, Plano East Senior High School, Plano
+Kanchana Raja, St. John's School, Houston
+Uma Ramesh, Texas Academy of Mathematics and Science, Denton
+Kevin Rao, Clements High School, Sugar Land
+Anjali Sridharan, Independence High School, Frisco
+Eric Sun, Allen High School, Allen
+Yusha Sun, A&M Consolidated High School, College Station
+Anirudh Suresh, St. John's School, Houston
+Hwa-Shen Tan, Texas Academy of Math and Science, Denton
+Megha Vyakaranam, Independence High School, Frisco
+Daniel Wang, Lake Travis High School, Austin
+Emma Winson, The Hockaday School, Dallas
+David Xiang, Westwood High School, Austin
+Arjun Yagnamurthy, Texas Academy of Mathematics and Science, Denton
+Patrick Yu, Plano Senior High School, Plano
+Michael Yuan, Texas Academy of Mathematics and Science, Denton
+Joshua Yue, Texas Academy of Mathematics and Science, Denton
+Cidam Yuksel, I. H. Kempner High School, Sugar Land
+Mike Zhang, Plano West Senior High School, Plano
+Shoshana Zhang, Texas Academy of Mathematics and Science, Denton
+Helen Zhang, Highland Park High School, Dallas
+Cindy Zheng, Plano West Senior High School, Plano
+David Zhou, Cypress Ranch High School, Cypress
+Shruti Anant, Thomas Jefferson High School for Science and Technology, Alexandria
+Soo Min Bae, Thomas Jefferson High School for Science and Technology, Alexandria
+Jesse Cai, Thomas Jefferson High School for Science and Technology, Alexandria
+Daniel Chae, Thomas Jefferson High School for Science and Technology, Alexandria
+Kelly Cho, Thomas Jefferson High School for Science and Technology, Alexandria
+Kevin Geng, Thomas Jefferson High School for Science and Technology, Alexandria
+Dhruv Gupta, Thomas Jefferson High School for Science and Technology, Alexandria
+Christopher Hoang, Thomas Jefferson High School for Science and Technology, Alexandria 
+Harriet Khang, Thomas Jefferson High School for Science and Technology, Alexandria
+Daniel Kim, Langley High School, McLean
+Mehr Kumar, Loudoun Academy of Science, Sterling
+May Kyaw, Thomas Jefferson High School for Science and Technology, Alexandria
+Eric Liu, Thomas Jefferson High School for Science and Technology, Alexandria
+Christina Oh, Thomas Jefferson High School for Science and Technology, Alexandria
+Edward Oh, South County High School, Lorton
+Chaeyeon Oh, Episcopal High School, Alexandria
+Mihir Patel, Thomas Jefferson High School for Science and Technology, Alexandria
+Srijith Poduval, Thomas Jefferson High School for Science and Technology, Alexandria
+Siona Prasad, Thomas Jefferson High School for Science and Technology, Alexandria
+Neeraj Prasad, Thomas Jefferson High School for Science and Technology, Alexandria
+Suhas Sastry, Thomas Jefferson High School for Science and Technology, Alexandria
+Matthew Spencer, The Potomac School, McLean
+Emma Stowe, Blacksburg High School, Blacksburg
+Emma Strickland, Blacksburg High School, Blacksburg
+Aadith Vittala, Thomas Jefferson High School for Science and Technology, Alexandria
+Yuanpei Wang, Mclean High School, McLean
+Eric Wang, Thomas Jefferson High School for Science and Technology, Alexandria
+Lawrence Wang, Thomas Jefferson High School for Science and Technology, Alexandria
+Jason Wei, Thomas Jefferson High School for Science and Technology, Alexandria
+Ethan Wu, Thomas Jefferson High School for Science and Technology, Alexandria
+April Xie, Loudoun Academy of Science, Sterling
+William Xu, Thomas Jefferson High School for Science and Technology, Alexandria
+Stella Yang, Thomas Jefferson High School for Science and Technology, Alexandria
+Alexander Yang, Langley High School, McLean
+Adam Yee, Thomas Jefferson High School for Science and Technology, Alexandria
+Michael You, Thomas Jefferson High School for Science and Technology, Alexandria
+Brian Gu, Interlake High School, Bellevue
+Swetha Shutthanandan, Richland High School, Richland
+Richard Zhang, Redmond High School, Redmond
+Suzanne O'Meara, West High School, Madison
+

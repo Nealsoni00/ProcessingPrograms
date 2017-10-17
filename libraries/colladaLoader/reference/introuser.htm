@@ -1,0 +1,306 @@
+<body>
+<style>
+
+p {
+	font-family:arial;
+	font-size:16px;
+	text-decoration:none;
+	max-width:600px;
+	}
+
+.default li {
+	font-family:arial;
+	font-size:14px;
+	text-decoration:none;
+	margin-left:15px;
+	margin-top:5px;
+	margin-bottom:5px;
+	max-width:600px;
+	}
+
+
+.default {
+	position:absolute;
+	top:10px;
+	left:15px;
+	padding-left:15px;
+	padding-top:15px;
+	padding-bottom:800px;
+	padding-right:15px;
+	min-width:600px;
+	/*min-height:1000px;*/
+	
+	background:#FFF;
+
+       display: table-cell;
+	}
+
+h1 {
+	font-family:arial;
+	font-size:20px;
+	text-decoration:none;
+	}
+
+h2 {
+	font-family:arial;
+	font-size:16px;
+	text-decoration:bold;
+	}
+	
+
+/* CSS3 browser support is required to work properly next two blocks */
+.expand {
+       		display:none;
+	}
+.expand:target	{
+		display: table-cell; 
+		}
+.expand ol{
+	font-size:14px;
+	font-family:arial;
+	margin-top:5px;
+	margin-bottom:5px;
+	max-width:600px;
+	/*dont use li, explorer cannot handle hidden listings*/
+	}
+
+h3 {
+	font-family:arial;
+	font-size:14px;
+	}
+
+table, td	{
+	font-family:arial;
+	font-size:14px;
+	padding:5px;
+	}
+
+
+
+pre {
+	font-family:courier;
+	font-size:12px;
+	text-decoration:none;
+	}
+
+</style>
+
+<div class="default">
+
+
+<h1>User-Manual for ColladaLoader</h1>
+<p> 
+ Currently, ColladaLoader can import dae or kmz files created by Blender or SketchUp.
+ Next two chapters describe some rules about exporting dae files
+ </p>
+ 
+<h2>SketchUp export instructions</h2>
+<p>Do / enshure following steps:</p>
+<p>
+<li>Try to safe existing .skp files into version 8</li>
+<li>Remove all groups in your model: <br />
+ Zoom back press CTRL+A then mouse rightclick and choose "explode"</li>
+<li>Enshure for unique textures: <br />
+ Do mouse rightclick on each faces which have textures applied and 
+ choose "Make Unique Texture"</li>
+<li>save .skp File then export as kmz or dae: <br />
+Choose in Sketchup "File" &rarr; "Export" &rarr; "3D-Model"</li>
+</p>
+<h2>Blender export instructions</h2>
+<p>
+Consider following points:
+</p>
+<p>
+<li>use material textures and uv maps (<a href="./texture_material.png">printscreen</a>)</li>
+<li>use material for colors + transparencies (<a href="./color_material.png">printscreen</a>)</li>
+<li>remove unused uv-maps (<a href="./uvmaps.png">printscreen</a>)</li>
+<li>set export options to: (<a href="./texture_export.png">printscreen</a>)
+ <ol>
+ <li>"triangulate" </li>
+ <li>transformation type "matrix" </li>
+ <li>"include material textures"</li>
+ </ol>
+</li>
+<li>pure lines (edges) do not have colors or thickness, Blender does not export it</li>
+<li>store dae file and texture pics into same folder</li>
+<li>export and reimport a dae to debug any problems (missing colors or textures, bad scales)</li>
+<li>collada transfers from SketchUp to Blender need the import option "Import Units".</li>
+</p>
+
+<h2>Import into Processing</h2>
+<p>
+The library has demo files they do all the same, but use different renderers. If your
+platform produce no errors using P3D then ViewerDefault is the right choice.
+</p>
+<p>
+The examples give a quick start over all features/usage of this library. User should
+also read javadoc for classes &quot;ColladaLoader&quot;
+ and &quot;ColladaModel&quot;. Here is a short beginner sample:
+</p>
+<p>
+<pre>
+import ch.dieseite.colladaloader.ColladaLoader;
+import ch.dieseite.colladaloader.wrappers.ColladaModel;
+
+ColladaModel model;
+
+void settings() {
+	size(500,500,P3D);
+}
+
+void setup() {
+
+	lights();
+	frameRate(10);
+	
+	model = ColladaLoader.load("sketchup.kmz",this,null);
+	//notes:
+	//- loader accepts kmz and dae file endings
+	//- user can create unlimited numbers of models
+	//- loader can process user options via 3rd param
+}
+
+void draw() {
+
+	background(0);
+	
+	model.draw();
+	//notes: (see also javadoc)
+	//- model can draw using default renderer (2D) or OpenGL (P2D/P3D)
+	//- model can scale, move or rotate its 3D positions without changing rest of view
+}
+</pre>
+</p>
+<p>
+<table border="1">
+<tr>
+	<th colspan="3">User Options</th>
+</tr>
+<tr>
+	<td colspan="3">Users can fine adjust colladaLoader's behavior as following:
+	<pre>import java.util.Properties;
+&lt;...&gt;
+Properties options = new Properties();
+ColladaLoader.load("sketchup.kmz",this,options);
+&lt;...&gt;</pre></td>
+</tr>
+<tr>
+	<th>Key</th><th>Value</th><th>Affect</th>
+</tr>
+<tr>
+	<td rowspan="2" >option_no_texture</td><td>true</td><td>ColladaLoader uses 
+	Processing images (PImage) to display textures. If value is true then collada 
+	texture data is ignored and replaced by	a dummy color. A useful	debug tool 
+	on problems like "image file not found, unsupported image format,
+	out of memory" etc.</td>
+</tr>
+<tr>
+	<td>false (default)</td><td>textures is enabled</td>
+</tr>
+<tr>
+	<td rowspan="2" >LinkingSchema</td><td>Sketchup (default)</td><td>A loading profile
+	what consider the way how external 3D modeling applications export 3D data to collada.
+	In other words: exported .dae files by SketchUp should use that value.</td>
+</tr>
+<tr>
+	<td>Blender</td><td>Loads collada file via Blender profile</td>
+</tr>
+<tr>
+	<td>debuglevel</td><td>0 to 4</td><td>Verbose internal processes from 
+	ColladaLoader to system console:<br />
+	4 = extreme details<br />
+	3 = details <br />
+	2 = medium <br />
+	1 = abstract <br />
+	0 = none (default)
+	</td>
+</tr>
+</table>
+</p>
+
+
+
+
+<h2>Troubleshooting</h2>
+<p>
+<li>enable logging, change LinkingSchema, or disable textures via ColladaLoader user options</li>
+<li>spare hardware stress via Processing API/ sketchbook options: 
+ <ol>
+  <li>framerate()</li><li>noLoop()</li><li>increase max memory size</li>
+ </ol>
+</li>
+<li>run "GLBaseTest" from example on general P2D/P3D problems</li>
+</p>
+
+<h2>Appendix: GLAdapter / GLBaseTest</h2>
+<p>
+GLAdapter is another way to run OpenGL /P3D. Both, Processing API and GLAdapter,
+use the same native libraries (JOGL) but obviously over different implementations
+. As Processing increased its version to 2.0 and higher my platform began 
+to crash so I was forced to find a way to patch this bug. Let's suppose I'm not
+the only one with this issue I included this patch to colladaLoader package now.
+</p>
+<p>
+GLAdapter emulates a selected part of Processing API (P3D). It has the same names
+, accepts the same input params and shows the same output behavior. But the performance
+is not very sexy. Every usage start with this sample stub:
+</p>
+<p>
+<pre>
+
+import ch.dieseite.glemulator.GLAdapter;
+GLAdapter adapter;
+
+void settings(){
+	size(200, 200); //leave Processing in 2D
+}
+
+void setup(){
+	adapter = new GLAdapter(200, 200);
+} 
+
+void draw(){
+	adapter.background(200);// An API example (see also list below)
+	
+	adapter.repaint();  //flush jobs, must ALWAYS be called at the end
+} 
+</pre>
+</p>
+<p>
+There exist a class "GLBaseTest" which creates some test shapes.
+</p>
+<p>
+Following functions is supported by GLAdapter:
+
+
+<li>void lights()</li>
+<li>void strokeWeight(float w)</li>
+<li>void stroke(float r, float g, float b)</li>
+<li>void line(float xa, float ya, float za, float xb, float yb, float zb)</li>
+<li>void translate(float x, float y, float z)</li>
+<li>void rotateY(float angle)</li>
+<li>void rotateX(float angle)</li>
+<li>void rotateZ(float angle)</li>
+<li>void scale(float v)</li>
+<li>void beginShape(int mode) (supported mode "GLAdapter.TRIANGLE" only)</li>
+<li>void endShape()</li>
+<li>void fill(float r, float g, float b, float t)</li>
+<li>void fill(float c)</li>
+<li>void vertex(float x, float y, float z)</li>
+<li>void vertex(float x, float y, float z, float tx, float ty)</li>
+<li>void texture(PImage img)</li>
+<li>void background(float c)</li>
+<li>int color(int r, int g, int b, int a)</li>
+
+</p>
+
+
+
+
+
+
+</div>
+
+
+
+</body>

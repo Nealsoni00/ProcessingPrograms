@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<xs:schema xmlns:my="http://www.die-seite.ch" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.die-seite.ch">
+
+
+  <xs:element name="root">
+    <xs:complexType>
+    	<xs:sequence>
+    		<xs:element maxOccurs="1" minOccurs="1" name="loading">
+    			<xs:complexType>
+    				<xs:sequence>
+    					<xs:element maxOccurs="unbounded" name="entities">
+    						<xs:complexType>
+    							<xs:sequence>
+    								<xs:element maxOccurs="unbounded" name="target" type="my:type_target"/>
+    							</xs:sequence>
+    							<xs:attribute name="poolname" use="required"/>
+    						</xs:complexType>
+    					</xs:element>
+    				</xs:sequence>
+    			</xs:complexType>
+    		</xs:element>
+    		<xs:element maxOccurs="1" minOccurs="1" name="assembling">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="iteration" type="my:type_iteration"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="function" type="my:type_function"/>
+					</xs:sequence>
+				</xs:complexType>    			
+    		</xs:element>
+    		<xs:element maxOccurs="1" minOccurs="1" name="interface">
+    			<xs:complexType>
+    				<xs:attribute name="name" use="required"/>
+    				<xs:attribute name="class" use="required"/>
+    			</xs:complexType>
+    		</xs:element>
+    	</xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+	<xs:complexType name="type_target">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="target" type="my:type_target"/>
+		</xs:sequence>
+		<xs:attribute name="idValueIn" type="my:stricts_target"/>
+		<xs:attribute name="pattern" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:pattern value="([^#]+)|([^#]+#[^#]+)"/>
+			</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="nextIdValueIn" type="my:stricts_target">
+      <xs:annotation>
+        <xs:documentation>Define pairwise with "nextEntity" only!</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+        <xs:attribute name="nextEntity" type="my:stricts_target">
+      <xs:annotation>
+        <xs:documentation>Define pairwise with "nextIdValueIn" only!</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>       
+    </xs:complexType>
+    
+    <xs:complexType name="type_iteration">
+    	<xs:sequence>
+    		<xs:element maxOccurs="unbounded" minOccurs="0" name="iteration" type="my:type_iteration"/>
+    		<xs:element maxOccurs="unbounded" minOccurs="0" name="function" type="my:type_function"/>    		
+    	</xs:sequence>
+    	<xs:attribute name="source" use="required"/>
+    	<xs:attribute name="tuple" use="required"/>
+    </xs:complexType>
+    
+    <xs:complexType name="type_function">
+    	<xs:sequence>
+    		<xs:element maxOccurs="unbounded" minOccurs="0" name="paramlist">
+    			<xs:complexType>
+    				<xs:attribute name="source" use="required"/>
+    				<xs:attribute name="args"/>
+    			</xs:complexType>
+    		</xs:element>
+     	</xs:sequence>
+    	<xs:attribute name="name" use="required"/>
+    	<xs:attribute name="class" use="required"/>
+    	<xs:attribute name="result"/>
+    </xs:complexType>
+
+
+	<xs:simpleType name="stricts_target">
+		<xs:union>
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="$TEXTCONTENT"/>
+			</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:pattern value="([^#]+)|(#[^#]+)"/>
+			</xs:restriction>
+			</xs:simpleType>
+		</xs:union>
+	</xs:simpleType>
+
+
+</xs:schema>

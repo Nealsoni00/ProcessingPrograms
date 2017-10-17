@@ -1,0 +1,166 @@
+<body>
+<style>
+
+p {
+	font-family:arial;
+	font-size:16px;
+	text-decoration:none;
+	max-width:600px;
+	}
+
+.default li {
+	font-family:arial;
+	font-size:14px;
+	text-decoration:none;
+	margin-left:15px;
+	margin-top:5px;
+	margin-bottom:5px;
+	max-width:600px;
+	}
+
+
+.default {
+	position:absolute;
+	top:10px;
+	left:15px;
+	padding-left:15px;
+	padding-top:15px;
+	padding-bottom:800px;
+	padding-right:15px;
+	min-width:600px;
+	/*min-height:1000px;*/
+	
+	background:#FFF;
+
+       display: table-cell;
+	}
+
+h1 {
+	font-family:arial;
+	font-size:20px;
+	text-decoration:none;
+	}
+
+h2 {
+	font-family:arial;
+	font-size:16px;
+	text-decoration:bold;
+	}
+	
+
+/* CSS3 browser support is required to work properly next two blocks */
+.expand {
+       		display:none;
+	}
+.expand:target	{
+		display: table-cell; 
+		}
+.expand ol{
+	font-size:14px;
+	font-family:arial;
+	margin-top:5px;
+	margin-bottom:5px;
+	max-width:600px;
+	/*dont use li, explorer cannot handle hidden listings*/
+	}
+
+h3 {
+	font-family:arial;
+	font-size:14px;
+	}
+
+table, td	{
+	font-family:arial;
+	font-size:14px;
+	padding:5px;
+	}
+
+
+
+pre {
+	font-family:courier;
+	font-size:12px;
+	text-decoration:none;
+	}
+
+</style>
+
+<div class="default">
+
+
+<h1>ColladaLoader for Processing</h1>
+<p> 
+ColladaLoader is a import library for Processing.
+It parses dae or kmz files created by 3D modeler like SketchUp or Blender.
+The Software architecture is now completely refactored and more flexible
+ to implement the large varieties of collada formats.
+ </p>
+<img src="./demo.png" />
+<h2>Supported features:</h2>
+<li> 3D shapes, colors and transparency</li>
+<li> textures</li>
+<li> multiple imports</li>
+<li> built in scale rotate or translation functions</li>
+<li> runnable in P3D/P2D or in NonGL Environment</li>
+<li> with a test tool to troubleshoot general P3D/P2D problems</li>
+<li> examples</li>
+
+<h2>Requirements:</h2>
+<li> Processing 3.0</li>
+<li> Blender 2.75a or SketchUp vers. 8</li>
+<li> not tested for other versions or other 3rd party applications</li>
+
+
+<h2>Download</h2>
+<p>
+<li>Processing menubar "Tools" &rarr; "Add Tool.." &rarr; "Library" section &rarr; search key "ColladaLoader"</li>
+<li>or <a href = "./colladaLoader.zip">here as zip</a></li>
+</p>
+
+<p>
+ Don't use older ColladaLoader versions.
+</p>
+
+<h2>Documentations</h2>
+
+<p>
+<a href = "./introuser.htm">User manual and troubleshoot</a>
+</p>
+<p>
+<a href = "./introtech.htm">Technical specifications</a>
+</p>
+
+
+
+<h2>References</h2>
+
+<p>
+<li><a href = "http://processing.org" target="_blank">http://processing.org</a></li>
+<li><a href = "http://www.sketchup.com/" target="_blank">http://www.sketchup.com/</a></li>
+<li><a href = "https://www.khronos.org/collada/" target="_blank">https://www.khronos.org/collada/</a></li>
+<li><a href = "http://www.leo.org" target="_blank">www.leo.org</a></li>
+<li><a href = "http://www.die-seite.ch/?colladaloader" target="_blank">http://www.die-seite.ch/?colladaloader</a></li>
+</p>
+
+<p>Last Update: Dec 2015</p>
+
+<p>
+<a href="#more">read more</a>
+</p>
+
+<!-- some of hidden text example -->
+
+<div id ="more" class="expand">
+
+<p style="font-size:8px;">(inserted by command 'javadoc -overview "D:\daten\Eclipse Projects\colladaLoader\docRessource\introDoc.htm"')</p>
+
+</div>
+
+<!-- end of hidden text -->
+
+</div>
+
+
+
+
+</body>

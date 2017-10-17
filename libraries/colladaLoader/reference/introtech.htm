@@ -1,0 +1,664 @@
+<body>
+<style>
+
+p {
+	font-family:arial;
+	font-size:16px;
+	text-decoration:none;
+	max-width:600px;
+	}
+
+.default li {
+	font-family:arial;
+	font-size:14px;
+	text-decoration:none;
+	margin-left:15px;
+	margin-top:5px;
+	margin-bottom:5px;
+	max-width:600px;
+	}
+
+
+.default {
+	position:absolute;
+	top:10px;
+	left:15px;
+	padding-left:15px;
+	padding-top:15px;
+	padding-bottom:800px;
+	padding-right:15px;
+	min-width:600px;
+	/*min-height:1000px;*/
+	
+	background:#FFF;
+
+       display: table-cell;
+	}
+
+h1 {
+	font-family:arial;
+	font-size:20px;
+	text-decoration:none;
+	}
+
+h2 {
+	font-family:arial;
+	font-size:16px;
+	text-decoration:bold;
+	}
+	
+
+/* CSS3 browser support is required to work properly next two blocks */
+.expand {
+       		display:none;
+	}
+.expand:target	{
+		display: table-cell; 
+		}
+.expand ol{
+	font-size:14px;
+	font-family:arial;
+	margin-top:5px;
+	margin-bottom:5px;
+	max-width:600px;
+	/*dont use li, explorer cannot handle hidden listings*/
+	}
+
+h3 {
+	font-family:arial;
+	font-size:14px;
+	}
+
+table, td	{
+	font-family:arial;
+	font-size:14px;
+	padding:5px;
+	}
+
+
+
+pre {
+	font-family:courier;
+	font-size:12px;
+	text-decoration:none;
+	}
+
+</style>
+
+<div class="default">
+
+<h1>
+Technical Documentation
+</h1>
+
+<h2>
+Table of Content
+</h2>
+
+<p>
+<ol>
+	<li><a href="#concept">Concept</a></li>
+	<li><a href="#overview">Overview</a>
+		<ol>
+			<li><a href="#sax">SaxParser</a></li>
+			<li><a href="#linker">ObjectLinker</a></li>
+			<li><a href="#asm">DataAssembler</a></li>
+		</ol>
+	</li>
+	<li><a href="#xmlspec">XML Specifications</a>
+		<ol>
+			<li><a href="#general">In General</a></li>
+			<li><a href="#loading">&lt;loading&gt;</a></li>
+			<li><a href="#assembling">&lt;assembling&gt;</a></li>
+			<li><a href="#interface">&lt;interface&gt;</a></li>
+			<li><a href="#func">&lt;function&gt;</a></li>
+			<li><a href="#prmlst">&lt;paramlist&gt;</a></li>
+			<li><a href="#iteration">&lt;iteration&gt;</a></li>
+			<li><a href="#entities">&lt;entities&gt;</a></li>
+			<li><a href="#target">&lt;target&gt;</a></li>
+		</ol>	
+	</li>
+	<li><a href="#geometry">Appendix: collada &lt;geometry&gt;</a></li>
+</ol>
+</p>
+
+<h2>
+<a name="concept" />Concept
+</h2>
+
+<p>
+Collada respectively .dae is a file format which represents 3D vector graphics
+into a XML format. Beyond this base mission it stores many add data that may be
+used by GL renderers such as shadings normals lamps and much more that affects
+the base model too. According to this collada specification is a script of almost 400
+pages and the varieties of combinations is very huge.
+</p>
+<p>
+A former version of this software was based on the concept: Each xml tag gets a java class
+and then we extract what we need from them to Processing. 
+That was a bad idea: Too less flexible. 
+</p>
+<p>The actual concept is better: 
+</p>
+<p>
+<li>1. We create a XML config file that contents all instructions</li>
+<li> a) what to do</li>
+<li> b) in which order</li>
+<li> c) with which proprietary or common tools</li>
+<li> d) how to return the end results</li>
+</p>
+<p>
+<li>2. We always let manage (XML defined) jobs from the same few java classes</li>
+</p>
+<p>
+The benefit appears instantly:
+</p>
+<p>
+<li>We can cover the huge collada varieties by creating some config files without SW architecture changes</li>
+<li>The XML file becomes a documentation at the same time what shows how the colladaloader works in detail</li>
+</p>
+	
+<h2>
+<a name="overview" />Overview
+</h2>
+
+<p>
+The most interesting part is located into &quot;coreproc&quot; package. We focus
+to the classes &quot;SaxParser&quot; &quot;ObjectLinker&quot; &quot;DataAssembler&quot;
+and &quot;LinkingSchema_*.xml&quot;. As in XML defined, the software does following 3 steps:
+</p>
+<p>
+<li>1. filtering interesting parts while scanning one or more times the entire
+collada file, returning tuples as java objects (by SaxParser)</li>
+<li>2. mapping and linking objects into a simple object oriented 
+database (by ObjectLinker)</li>
+<li>3. doing iterations through the database tables while loading/executing 
+small tasked functions. Then returning final 3D model to user sketch (managed by DataAssembler)</li>
+</p>
+<p>
+All 3 classes and all tools in asmbeans send debug informations to the Log
+class. More details can be found in javadoc code comments or linking schema specifications.
+</p>
+<p>
+<img src="./colladaOverview.png" />
+</p>
+<h3>
+<a name="sax" />Step 1: SaxParser
+</h3>
+<p>
+SaxParser is that class what read .dae file from begin to the end. It compares the
+ collada XML stream to a search pattern (got from ObjectLinker). A 
+pattern matches if XML depth and XML tag name of stream is arrived. In this case 
+a &quot;SaxParser.Record&quot; object is created for this tag. It can either</p>
+<p>
+<li>a) be added as a child into a current parent Record object or</li>
+<li>b) be returned via callback to ObjectLinker, if pattern is declared as parent</li>
+</p>
+<p>
+SaxParser process more than one patterns as &quot;OR&quot; and nested patterns as
+&quot;AND&quot;. Nested patterns implicate children, top levels parents. 
+</p>
+<p>Mostly SaxParser scans collada file several times, depending on the num of &lt;entities&gt;
+tags in linking schema (see also linking schema specifications).
+</p>
+
+<h3>
+<a name="linker" />Step 2: ObjectLinker
+</h3>
+<p>
+ObjectLinker creates and holds an object oriented database. So we get an abstraction
+to collada XML structure. ObjectLinker get its instructions via &lt;loading&gt; section
+in linking schema.</p>
+<p>In natural order and for each &lt;entities&gt; tag a new scan via SaxParser starts
+again committing search patterns. Each returned &quot;SaxParser.Record&quot; 
+objects is stored then into tables and linked/backlinked to other Records 
+(see also linking schema specifications).
+</p>
+<p>
+A &quot;SaxParser.Record&quot; object contains:
+</p>
+<p>
+<li>a unique ID (auto generated or collada defined)</li>
+<li>a next link to a foreign Record (optional, collada defined)</li>
+<li>a back link to a foreign or parent Record (optional, collada defined)</li>
+<li>a set of fetched child Records (optional, search pattern dependent)</li>
+</p>
+<h3>
+<a name="asm" />Step 3: DataAssembler
+</h3>
+<p>
+DataAssembler combines the data from database into final wrapper objects they 
+can be drawn by Processing. To do that it iterates through the database tables
+and invokes functions via system class loader. The &lt;assembling&gt; section
+from linking schema defines iterations and function calls.
+</p>
+<p>
+The functions themselves are located in package &quot;asmbeans&quot;. They do 
+atomic defined tasks and may be either proprietary or common compatible to 
+different linking schemas. 
+</p>
+<p>
+A next important part is the IO stub. The end results from the whole procedure
+must be returned to user on the other hand there may be some 
+options coming from user what some functions need.
+</p>
+<p>
+The input is realized via user options. (Read the user manual part). 
+The output goes via callbacks (see also <a href="#interface">&lt;interface&gt;</a>).
+ The ColladaLoader class creates on startup an empty listener and commit it here. 
+</p>
+
+<h2>
+<a name="xmlspec" />XML Specifications
+</h2>
+<h3>
+<a name="general" />In General
+</h3>
+<p>
+Any XML config files is always located inside package 
+&quot;jar://ch.dieseite.colladaloader.coreproc&quot;. The xml's is the
+tree trunk for the whole behavior of colladaLoader software. Its file names
+ underlies a naming convention:
+</p>
+<p>
+<li>A prefix &quot;LinkingSchema_&quot;</li>
+<li>A name choice from user options (see user manual part)</li>
+<li>A suffix &quot;.xml&quot;</li>
+</p>
+<p>
+For example: If user defines:</p>
+<p> <pre>Properties.put("LinkingSchema","Sketchup");</pre> </p>
+<p>then &quot;LinkingSchema_Sketchup.xml&quot; is opened + executed.
+</p>
+<p>
+If anyone want to create a new xml so please check it with 
+<a href="./linkingSchema.xsd">this linkingSchema.xsd</a> schema definition.
+As next it follows details for each tags.
+</p>
+<h3>
+XML Schema
+</h3>
+<p>
+<a name="loading" />
+<table>
+	<tr>
+		<th>&lt;loading&gt;</th><th></th>
+	</tr>
+	<tr>
+		<td>Description:</td><td>Section is read by ObjectLinker. The order 
+		of child tags matters how to build up database tables
+	</tr>
+	<tr>
+		<td>Attributes:</td><td>no</td>
+	</tr>
+	<tr>
+		<td>Occurence:</td><td>exactly 1</td>
+	</tr>
+	<tr>
+		<td>Parent:</td><td>root</td>
+	</tr>
+	<tr>
+		<td>Child:</td><td>entities</td>
+	</tr>
+</table>
+</p>
+<p>
+<a name="assembling" />
+<table>
+	<tr>
+		<th>&lt;assembling&gt;</th><th></th>
+	</tr>
+	<tr>
+		<td>Description:</td><td>Section is read by DataAssembler. The order 
+		of child tags matters how to combine database content into 
+		Processing handable objects.
+	</tr>
+	<tr>
+		<td>Attributes:</td><td>no</td>
+	</tr>
+	<tr>
+		<td>Occurence:</td><td>exactly 1</td>
+	</tr>
+	<tr>
+		<td>Parent:</td><td>root</td>
+	</tr>
+	<tr>
+		<td>Children:</td><td>iteration, function</td>
+	</tr>
+</table>
+</p>
+<p>
+<a name="interface" />
+<table>
+	<tr>
+		<th colspan="2">&lt;interface&gt;</th><th></th>
+	</tr>
+	<tr>
+		<td colspan="2">Description:</td><td>I/O stub definition between Processing
+		user sketch and DataAssembler respectively its static Methods 
+		into &quot;asmbeans&quot; package. The interface class is 
+		loaded via java class loader and must have a constructor 
+		<pre>AnyName(java.utils.Properties input, DataAssembler.LoadingListener output)</pre>
+		If a <a href="#func">function</a> needs options then Properties is read. If a function wants to add
+		final Triangles or Lines to ColladaModel then LoadingListener methods is fired.</td>
+	</tr>
+	<tr>
+		<td>Attributes:</td>
+			<td>name</td><td>Defines a variable/descriptor name inside xml. It can be
+			added via &lt;paramlist&gt; tag to any function.
+			Required!</td>
+	</tr>
+		<tr>
+		<td></td><td>class</td>
+			<td>fully qualified class name, should be located in 
+			&quot;asmbeans&quot; package. Required!</td>
+	</tr>
+	<tr>
+		<td colspan="2">Occurence:</td><td>exactly 1</td>
+	</tr>
+	<tr>
+		<td colspan="2">Parent:</td><td>root</td>
+	</tr>
+	<tr>
+		<td colspan="2">Children:</td><td>no</td>
+	</tr>
+</table>
+</p>
+<p>
+<a name="func" />
+<table>
+	<tr>
+		<th colspan="2">&lt;function&gt;</th><th></th>
+	</tr>
+	<tr>
+		<td colspan="2">Description:</td><td>Defines static Methods 
+		into &quot;asmbeans&quot; package. They should do atomic defined tasks and
+		must have a signature like: 
+		<pre>public static AnyTypeOrVoid anySmartDefinedName(ArrayList&lt;DataAssembler.Param&gt; p)</pre></td>
+	</tr>
+	<tr>
+		<td>Attributes:</td>
+			<td>name</td><td>Definition of method name. Required!</td>
+	</tr>
+	<tr>
+		<td></td><td>class</td>
+			<td>fully qualified class name the method belongs to, should be located in 
+			&quot;asmbeans&quot; package. Required!</td>
+	</tr>
+	<tr>
+		<td></td><td>result</td>
+			<td>descriptor, defines the returned object from that method (if not void)
+			and can be assigned to other functions via paramlist. Optional</td>
+	</tr>
+	<tr>
+		<td colspan="2">Occurence:</td><td>zero or more</td>
+	</tr>
+	<tr>
+		<td colspan="2">Parents:</td><td>assembling or iteration</td>
+	</tr>
+	<tr>
+		<td colspan="2">Child:</td><td>paramlist</td>
+	</tr>
+</table>
+</p>
+<p>
+<a name="prmlst" />
+<table>
+	<tr>
+		<th colspan="2">&lt;paramlist&gt;</th><th></th>
+	</tr>
+	<tr>
+		<td colspan="2">Description:</td><td>Definition for method params in functions.
+		Any descriptor/variable is allowed. If params is required depends on the 
+		function implementation</td> 
+	</tr>
+	<tr>
+		<td>Attributes:</td>
+			<td>source</td><td>Descriptor name. Required!</td>
+	</tr>
+	<tr>
+		<td></td><td>args</td><td>A simple additional string, 
+		implementation depending. Optional</td>
+	</tr>
+	<tr>
+		<td colspan="2">Occurence:</td><td>zero or more</td>
+	</tr>
+	<tr>
+		<td colspan="2">Parent:</td><td>function</td>
+	</tr>
+	<tr>
+		<td colspan="2">Child:</td><td>no</td>
+	</tr>
+</table>
+</p>
+<p>
+<a name="iteration" />
+<table>
+	<tr>
+		<th colspan="2">&lt;iteration&gt;</th><th></th>
+	</tr>
+	<tr>
+		<td colspan="2">Description:</td><td>Describes an instruction to DataAssembler
+		to iterate a collection of objects. There exist 4 supported types they
+		can be iterated:
+			<table border="1">
+				<tr>
+					<th>input collection types</th><th>output tuple types</th>
+				</tr>
+				<tr>
+					<td>child objects from a SaxParser.Record</td><td>SaxParser.Record</td>
+				</tr>
+				<tr>
+					<td>database tables (see also <a href="#entities">&lt;entities&gt;</a>)</td><td>SaxParser.Record</td>
+				</tr>
+				<tr>
+					<td>any java.util.Map</td><td>any values type</td>
+				</tr>
+				<tr>
+					<td>any java.util.Collection</td><td>any collection type</td>
+				</tr>
+			</table>
+		This tag works similar as a foreach instruction in java. So nested iterations
+		 is allowed. And a collection may also be created by a function (<a href="#func">see</a>). 
+		
+		</td> 
+	</tr>
+	<tr>
+		<td>Attributes:</td>
+			<td>source</td><td>Descriptor name for a collection. Required!</td>
+	</tr>
+	<tr>
+		<td></td><td>tuple</td><td>Descriptor name for a current tuple from collection. Required!</td>
+	</tr>
+	<tr>
+		<td colspan="2">Occurence:</td><td>zero or more</td>
+	</tr>
+	<tr>
+		<td colspan="2">Parent:</td><td>assembling or iteration</td>
+	</tr>
+	<tr>
+		<td colspan="2">Child:</td><td>function or iteration</td>
+	</tr>
+</table>
+</p>
+<p>
+<a name="entities" />
+<table>
+	<tr>
+		<th colspan="2">&lt;entities&gt;</th><th></th>
+	</tr>
+	<tr>
+		<td colspan="2">Description:</td><td>Initiate ObjectLinker to add
+		Records returned from SaxParser into a new or existing database table.
+		Each occurred entities tag starts (in natural order) a new separate scan
+		 through collada file and processes search patterns of 
+		 <a href="#target">&lt;target&gt;</a> instructions. The table is realized
+		  as a java.util.TreeMap. The database packs tables into a java.util.HashMap 
+		  so we have as result:
+		<pre>HashMap&lt;poolname,TreeMap&lt;uniqueID,recordObject&gt;&gt
+respectively
+HashMap&lt;String,TreeMap&lt;String,SaxParser.Record&gt;&gt</pre></td> 
+	</tr>
+	<tr>
+		<td>Attributes:</td>
+			<td>poolname</td><td>Name resp. decriptor of database table. Required!</td>
+	</tr>
+	<tr>
+		<td colspan="2">Occurence:</td><td>one or more</td>
+	</tr>
+	<tr>
+		<td colspan="2">Parent:</td><td>loading</td>
+	</tr>
+	<tr>
+		<td colspan="2">Child:</td><td>target</td>
+	</tr>
+</table>
+</p>
+
+<p>
+<a name="target" />
+<table>
+	<tr>
+		<th colspan="2">&lt;target&gt;</th><th></th>
+	</tr>
+	<tr valign="top">
+		<td colspan="2">Description:</td><td>
+		This tag gives instructions which data from collada xml stream shall 
+		be picked up and be stored into database. It also contains tuple linking
+		definitions. (primary + foreign keys).<br /><br />
+		&lt;target&gt; may contain nested tags. If so there exist restrictions about attribute occurrences:
+		<li>&quot;idValueIn&quot;: zero or one</li> (if zero then ID is auto increment by DB)</li>
+		<li>&quot;nextIdValueIn&quot; and &quot;nextEntity&quot;: zero or more, always pairwise only</li>
+		<br /><br />
+		If &lt;target&gt; has nested tags and all patterns match then each resulting 
+		SaxParser.Record have child Records likewise
+		</td> 
+	</tr>
+	<tr valign="top">
+		<td>Attributes:</td>
+			<td>pattern</td><td>A required search pattern for collada xml stream.
+			A pattern can either match by tag name (Syntax: &quot;tagName&quot;) 
+			or tag name and attribute value	(Syntax: &quot;tagName#attribName=value&quot;). 
+			Each xml depth is separated by &quot;/&quot;.<br /><br />
+			
+			For Example: (see also <a href="#sax">SaxParser</a>)
+			<table border="1">
+				<tr>
+					<th>collada xml</th><th>pattern</th><th>match</th>
+				</tr>
+				<tr>
+					<td rowspan="3">
+					&lt;x&gt;<br />
+					&nbsp;&lt;y&gt;<br />
+					&nbsp;&nbsp;&lt;z a=&quot;2&quot;/&gt;<br />
+					&nbsp;&nbsp;&lt;z a=&quot;1&quot;/&gt;<br />
+					&nbsp;&nbsp;&lt;z /&gt;<br />
+					&nbsp;&lt;/y&gt;<br />
+					&lt;/x&gt;
+					</td><td>x/y/z#a=1</td><td>one &quot;z&quot; only</td>
+				</tr>
+				<tr>
+					<td>x/y/z</td><td>all 3 &quot;z&quot;</td>
+				</tr>
+				<tr>
+					<td>z</td><td>no match</td>
+				</tr>
+			</table>
+			</td>
+	</tr>
+	<tr valign="top">
+		<td></td><td>idValueIn</td><td>Table Unique ID, optional. The ID value for
+		database can be assigned in 3 ways:
+		<li>&quot;$TEXTCONTENT&quot;&nbsp;&rarr;&nbsp;value results from current 
+			#CDATA of collada xml tag</li>
+		<li>A &quot;#&quot; prefix followed by a name&nbsp;&rarr;&nbsp;value 
+			results from current attribute name of collada xml tag</li>
+		<li>any String &nbsp;&rarr;&nbsp; manually assigned value (mostly never used)</li>
+		<br /><br />
+		Applied in all 3 cases: any &quot;#&quot; tabstops or spaces from 
+		resulting values won't be stored to DB.
+		</td>
+	</tr>
+	<tr valign="top">
+		<td></td><td>nextIdValueIn</td><td>Foreign key to another Record, optional.
+		Same syntax rules as &quot;idValueIn&quot; is applied.</td>
+	</tr>
+	<tr valign="top">
+		<td></td><td>nextEntity</td><td>Foreign table name, optional</td>
+	</tr>
+	<tr valign="top">
+		<td colspan="2">Occurence:</td><td>one or more</td>
+	</tr>
+	<tr valign="top">
+		<td colspan="2">Parent:</td><td>entities or target</td>
+	</tr>
+	<tr valign="top">
+		<td colspan="2">Child:</td><td>target</td>
+	</tr>
+</table>
+</p>
+
+<h2>
+<a name="geometry" />Appendix: collada &lt;geometry&gt;
+</h2>
+<p>
+To get an intro into philosophy of collada we take a view to geometry tag. Most of
+child tags is not used for our purpose. And ,not really surprising, Sketchup takes
+another way than Blender. We focus to the &quot;Sketchup way&quot;.
+</p>
+<p>
+If we say &quot;triangulate&quot; a 3D model that means any form can be splitted
+into single triangles in a 3D space (x,y,z positions). In addition, grid structures
+can be displayed as triangulated lines. So a &lt;geometry&gt; tag links this
+data via subtags &lt;lines&gt; and &lt;triangles&gt;.
+</p>
+<p>
+ Next picture is an example for one textured triangle. For texture and vertice 
+ positions exist separate &lt;float_array&gt; tags (subtags of &lt;geometry&gt;) 
+ they contain raw coords here. The meanings for each values is showed in 
+ picture below. 
+ </p>
+ <a href="./verticeTag.png"><img src="./verticeTag.png" height="90px" />Zoom</a>
+ <p>
+ To get raw data access another tag is needed: The &lt;p&gt; contains array
+ indices to find coords in &lt;float_array&gt;. To do it more complicated,
+ indices for texture and vertices is multiplexed into the same tag. To demux it
+  the attribute &quot;offset&quot; of &lt;input&gt; is read by application. 
+  See picture again.
+ </p>
+ <p>
+ In this example the offset 1 is allocated to textures and the vertices have
+ offset 0. After parsing we get following results:
+</p>
+<table>
+<tr>
+<td>Vertice:</td>
+</tr>
+<tr>
+<td>Point A:</td><td>x=26.2341</td><td>y=189.0905</td><td>z=0.0</td>
+</tr>
+<tr>
+<td>Point B:</td><td>x=26.2341</td><td>y=83.5787</td><td>z=0.0</td>
+</tr>
+<tr>
+<td>Point C:</td><td>x=95.1952</td><td>y=83.5787</td><td>z=0.0</td>
+</tr>
+<tr>
+<td>Textures for:</td>
+</tr>
+<tr>
+<td>Point A:</td><td>x=0.9988</td><td>y=0.0008</td>
+</tr>
+<tr>
+<td>Point B:</td><td>x=0.0012</td><td>y=0.0008</td>
+</tr>
+<tr>
+<td>Point C:</td><td>x=0.0012</td><td>y=0.9991</td>
+</tr>
+</table>
+
+
+
+</div>
+
+</body>
